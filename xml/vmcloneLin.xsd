@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!-- definition of simple elements -->
+<xs:element name="Domain" type="xs:string"/>
+<xs:element name="IP" type="xs:string"/>
+<xs:element name="Gateway" type="xs:string"/>
+<xs:element name="Netmask" type="xs:string"/>
+<xs:element name="Disksize" type="xs:integer"/>
+<xs:element name="Memory" type="xs:integer"/>
+<xs:element name="Number-of-CPUS" type="xs:integer"/>
+<xs:element name="Network" type="xs:string"/>
+
+<!-- definition of complex elements -->
+<xs:element name="Customization-Spec">
+<xs:complexType>
+  <xs:sequence>
+   <xs:element ref="Domain"/>
+   <xs:element ref="IP"/>
+   <xs:element ref="Gateway"/>
+   <xs:element ref="Netmask"/>
+  </xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="Virtual-Machine-Spec">
+<xs:complexType>
+  <xs:sequence>
+   <xs:element ref="Memory"/>
+   <xs:element ref="Disksize"/>
+   <xs:element ref="Number-of-CPUS"/>
+   <xs:element ref="Network"/>
+  </xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="Specification">
+<xs:complexType>
+  <xs:sequence>
+  <xs:element ref="Customization-Spec" maxOccurs="1"/>
+  <xs:element ref="Virtual-Machine-Spec" maxOccurs="1"/>
+  </xs:sequence>
+</xs:complexType>
+</xs:element>
+
+</xs:schema>
